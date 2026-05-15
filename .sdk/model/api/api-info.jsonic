@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Stadt St.Gallen Open Data Portal"
+        url: "https://daten.stadt.sg.ch"
+      }
+      description: "Measures pedestrian traffic in St. Gallen, showing the number of pedestrians passing by a sensor on Vadianstrasse (at St.Galler Stadtwerke). The sensor measures pedestrians coming from the right (Neumarkt) and left (Multergasse), with hourly aggregated data. This dataset shows unprocessed live sensor data, meaning measurement errors or interruptions are not captured or corrected."
+      servers: [
+        {
+          description: "St.Gallen Open Data API Server"
+          url: "https://daten.stadt.sg.ch/api"
+        }
+      ]
+      title: "Passantenfrequenz Stadt St.Gallen"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

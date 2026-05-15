@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "facet_group": [],
+        "nhit": "s29",
+        "parameter": {},
+        "record": []
+      },
+      "SEARCH01": {
+        "facet_group": [],
+        "nhit": "s51",
+        "parameter": {},
+        "record": []
+      },
+      "SEARCH02": {
+        "facet_group": [],
+        "nhit": "s79",
+        "parameter": {},
+        "record": []
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "facet_group": [],
+        "nhit": "sa1",
+        "parameter": {},
+        "record": []
+      }
+    }
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Passantenfrequenz Stadt St.Gallen",
+    "description": "Measures pedestrian traffic in St. Gallen, showing the number of pedestrians passing by a sensor on Vadianstrasse (at St.Galler Stadtwerke). The sensor measures pedestrians coming from the right (Neumarkt) and left (Multergasse), with hourly aggregated data. This dataset shows unprocessed live sensor data, meaning measurement errors or interruptions are not captured or corrected.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Stadt St.Gallen Open Data Portal",
+      "url": "https://daten.stadt.sg.ch"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://daten.stadt.sg.ch/api",
+      "description": "St.Gallen Open Data API Server"
+    }
+  ],
+  "paths": {
+    "/records/1.0/search/": {
+      "get": {
+        "summary": "Search pedestrian traffic records",
+        "description": "Retrieves pedestrian traffic data from the Vadianstrasse sensor. Returns the number of pedestrians passing by from both directions (Neumarkt and Multergasse) with hourly aggregation.",
+        "operationId": "searchPedestrianRecords",
+        "parameters": [
+          {
+            "name": "dataset",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "fussganger-stgaller-innenstadt-vadianstrasse"
+            },
+            "description": "Dataset identifier for pedestrian traffic data"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Full-text search query"
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 10000
+            },
+            "description": "Number of records to return"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            },
+            "description": "Index of the first result to return (for pagination)"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "measured_at"
+            },
+            "description": "Field to sort results by (e.g., 'measured_at' for measurement timestamp)"
+          },
+          {
+            "name": "facet",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "tag_nr",
+                  "wochentag",
+                  "arbeitstag"
+                ]
+              }
+            },
+            "style": "form",
+            "explode": true,
+            "description": "Facet fields for filtering (tag_nr: day number, wochentag: weekday, arbeitstag: working day)"
+          },
+          {
+            "name": "refine.tag_nr",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by day number"
+          },
+          {
+            "name": "refine.wochentag",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by weekday"
+          },
+          {
+            "name": "refine.arbeitstag",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by working day (yes/no)"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "csv",
+                "geojson"
+              ],
+              "default": "json"
+            },
+            "description": "Response format"
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Europe/Zurich"
+            },
+            "description": "Timezone for date/time fields"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with pedestrian traffic records",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nhits": {
+                      "type": "integer",
+                      "description": "Total number of records matching the query"
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "description": "Query parameters used for the search"
+                    },
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "datasetid": {
+                            "type": "string",
+                            "example": "fussganger-stgaller-innenstadt-vadianstrasse"
+                          },
+                          "recordid": {
+                            "type": "string",
+                            "description": "Unique identifier for the record"
+                          },
+                          "fields": {
+                            "type": "object",
+                            "properties": {
+                              "measured_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Timestamp of the measurement"
+                              },
+                              "von_rechts": {
+                                "type": "integer",
+                                "description": "Number of pedestrians from the right (Neumarkt)"
+                              },
+                              "von_links": {
+                                "type": "integer",
+                                "description": "Number of pedestrians from the left (Multergasse)"
+                              },
+                              "summe": {
+                                "type": "integer",
+                                "description": "Total sum of pedestrians from both directions"
+                              },
+                              "tag_nr": {
+                                "type": "integer",
+                                "description": "Day number"
+                              },
+                              "wochentag": {
+                                "type": "string",
+                                "description": "Weekday name"
+                              },
+                              "arbeitstag": {
+                                "type": "string",
+                                "description": "Indicator if it's a working day"
+                              }
+                            }
+                          },
+                          "record_timestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp when the record was created/updated"
+                          }
+                        }
+                      }
+                    },
+                    "facet_groups": {
+                      "type": "array",
+                      "description": "Facet groups for filtering options",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "facets": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "count": {
+                                  "type": "integer"
+                                },
+                                "state": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "404": {
+            "description": "Dataset not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PedestrianRecord": {
+        "type": "object",
+        "properties": {
+          "measured_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the measurement"
+          },
+          "von_rechts": {
+            "type": "integer",
+            "description": "Number of pedestrians from the right (Neumarkt)"
+          },
+          "von_links": {
+            "type": "integer",
+            "description": "Number of pedestrians from the left (Multergasse)"
+          },
+          "summe": {
+            "type": "integer",
+            "description": "Total sum of pedestrians from both directions"
+          },
+          "tag_nr": {
+            "type": "integer",
+            "description": "Day number"
+          },
+          "wochentag": {
+            "type": "string",
+            "description": "Weekday name"
+          },
+          "arbeitstag": {
+            "type": "string",
+            "description": "Indicator if it's a working day"
+          }
+        }
+      }
+    }
+  }
+}

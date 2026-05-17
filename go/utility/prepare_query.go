@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/core"
+	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/core"
 )
 
 func prepareQueryUtil(ctx *core.Context) map[string]any {

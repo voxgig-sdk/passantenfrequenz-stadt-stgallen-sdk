@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/core"
+import "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/core"
 
 func makeRequestUtil(ctx *core.Context) (*core.Response, error) {
 	if ctx.Out["request"] != nil {

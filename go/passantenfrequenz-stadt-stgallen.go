@@ -1,10 +1,10 @@
 package voxgigpassantenfrequenzstadtstgallensdk
 
 import (
-	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/core"
-	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/entity"
-	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/feature"
-	_ "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/utility"
+	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/core"
+	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/entity"
+	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/feature"
+	_ "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

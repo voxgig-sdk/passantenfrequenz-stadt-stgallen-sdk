@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk"
-	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/core"
+	sdk "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go"
+	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/core"
 )
 
 func TestSearchDirect(t *testing.T) {

@@ -3,9 +3,9 @@ package utility
 import (
 	"strings"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/core"
+	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/core"
 )
 
 func makeOptionsUtil(ctx *core.Context) map[string]any {

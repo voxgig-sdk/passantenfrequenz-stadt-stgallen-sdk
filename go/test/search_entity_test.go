@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk"
-	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/core"
+	sdk "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go"
+	"github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go/utility/struct"
 )
 
 func TestSearchEntity(t *testing.T) {

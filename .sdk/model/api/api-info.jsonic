@@ -17,8 +17,26 @@ main: {
       ]
       title: "Passantenfrequenz Stadt St.Gallen"
       version: "1.0.0"
+      tagline: "Hourly pedestrian counts from a sensor on Vadianstrasse in central St.Gallen"
+      homepage: "https://daten.stadt.sg.ch/"
+      docs_url: "https://daten.stadt.sg.ch/api"
+      license_short: "Open data published by the City of St.Gallen; check the portal's terms and conditions for attribution requirements."
+      license_md: `- Open data published by the [City of St.Gallen](https://daten.stadt.sg.ch/) via its open data portal
+- Refer to the portal's [terms and conditions](https://daten.stadt.sg.ch/terms/terms-and-conditions/) for reuse and attribution rules
+- No explicit licence string was surfaced in the catalogue page`
+      about_md: `The Passantenfrequenz Stadt St.Gallen API exposes pedestrian foot-traffic counts from a sensor installed on Vadianstrasse, a street in the centre of [St.Gallen, Switzerland](https://daten.stadt.sg.ch/). The dataset is published by the City of St.Gallen on its open data portal, which is built on the [OpenDataSoft](https://www.opendatasoft.com/) platform.
+
+What you get from the API:
+
+- Pedestrian count records from the Vadianstrasse counter, returned newest-first
+- Hourly count values that can be aggregated for daily or longer-term trends
+- Standard OpenDataSoft search, facet and export operations over the dataset
+
+The portal supports CORS for browser-based clients and exposes results through its standard records and exports endpoints. Responses are paginated; the catalogue page notes a default page size of 20 records per request.`
+      entity_desc: {
+        search: "Search, filter and page through pedestrian-count records from the Vadianstrasse sensor via the OpenDataSoft records endpoint exposed under the portal's `/api` base."
+      }
+      auth: false
     }
   }
-}
-
 }

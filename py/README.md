@@ -10,7 +10,7 @@ The Python SDK for the PassantenfrequenzStadtStgallen API — an entity-oriented
 
 ## Install
 ```bash
-pip install passantenfrequenz-stadt-stgallen-sdk
+pip install voxgig-sdk-passantenfrequenz-stadt-stgallen
 ```
 
 Or install from source:

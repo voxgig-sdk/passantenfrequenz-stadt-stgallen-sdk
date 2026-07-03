@@ -10,7 +10,7 @@ The TypeScript SDK for the PassantenfrequenzStadtStgallen API — a type-safe, e
 
 ## Install
 ```bash
-npm install passantenfrequenz-stadt-stgallen
+npm install @voxgig-sdk/passantenfrequenz-stadt-stgallen
 ```
 ## Tutorial: your first API call
 

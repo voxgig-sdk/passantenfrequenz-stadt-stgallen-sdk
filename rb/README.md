@@ -10,13 +10,13 @@ The Ruby SDK for the PassantenfrequenzStadtStgallen API — an entity-oriented c
 
 ## Install
 ```bash
-gem install passantenfrequenz-stadt-stgallen-sdk
+gem install voxgig-sdk-passantenfrequenz-stadt-stgallen
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "passantenfrequenz-stadt-stgallen-sdk"
+gem "voxgig-sdk-passantenfrequenz-stadt-stgallen"
 ```
 
 Then run:

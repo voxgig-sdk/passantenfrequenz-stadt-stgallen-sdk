@@ -10,7 +10,7 @@ The Lua SDK for the PassantenfrequenzStadtStgallen API — an entity-oriented cl
 
 ## Install
 ```bash
-luarocks install passantenfrequenz-stadt-stgallen-sdk
+luarocks install voxgig-sdk-passantenfrequenz-stadt-stgallen
 ```
 
 If the module is not yet published, add the source directory to

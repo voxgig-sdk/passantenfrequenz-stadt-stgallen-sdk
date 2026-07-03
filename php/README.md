@@ -10,7 +10,7 @@ The PHP SDK for the PassantenfrequenzStadtStgallen API — an entity-oriented cl
 
 ## Install
 ```bash
-composer require voxgig/passantenfrequenz-stadt-stgallen-sdk
+composer require voxgig-sdk/passantenfrequenz-stadt-stgallen
 ```
 
 

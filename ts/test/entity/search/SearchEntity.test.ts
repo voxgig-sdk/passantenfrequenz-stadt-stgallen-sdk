@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'PASSANTENFREQUENZ_STADT_STGALLEN_TEST_SEARCH_ENTID': idmap,
     'PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE': 'FALSE',
     'PASSANTENFREQUENZ_STADT_STGALLEN_TEST_EXPLAIN': 'FALSE',
+    'PASSANTENFREQUENZ_STADT_STGALLEN_APIKEY': 'NONE',
   })
 
   idmap = env['PASSANTENFREQUENZ_STADT_STGALLEN_TEST_SEARCH_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new PassantenfrequenzStadtStgallenSDK(merge([
       {
+        apikey: env.PASSANTENFREQUENZ_STADT_STGALLEN_APIKEY,
       },
       extra
     ]))

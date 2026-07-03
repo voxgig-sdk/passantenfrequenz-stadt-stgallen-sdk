@@ -86,6 +86,7 @@ function search_basic_setup($extra)
         "PASSANTENFREQUENZSTADTSTGALLEN_TEST_SEARCH_ENTID" => $idmap,
         "PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE" => "FALSE",
         "PASSANTENFREQUENZSTADTSTGALLEN_TEST_EXPLAIN" => "FALSE",
+        "PASSANTENFREQUENZSTADTSTGALLEN_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function search_basic_setup($extra)
     if ($env["PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["PASSANTENFREQUENZSTADTSTGALLEN_APIKEY"],
             ],
             $extra ?? [],
         ]);

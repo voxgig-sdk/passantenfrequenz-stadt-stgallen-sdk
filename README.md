@@ -1,20 +1,8 @@
 # PassantenfrequenzStadtStgallen SDK
 
-Hourly pedestrian counts from a sensor on Vadianstrasse in central St.Gallen
+Passantenfrequenz Stadt St.Gallen client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Passantenfrequenz Stadt St.Gallen
-
-The Passantenfrequenz Stadt St.Gallen API exposes pedestrian foot-traffic counts from a sensor installed on Vadianstrasse, a street in the centre of [St.Gallen, Switzerland](https://daten.stadt.sg.ch/). The dataset is published by the City of St.Gallen on its open data portal, which is built on the [OpenDataSoft](https://www.opendatasoft.com/) platform.
-
-What you get from the API:
-
-- Pedestrian count records from the Vadianstrasse counter, returned newest-first
-- Hourly count values that can be aggregated for daily or longer-term trends
-- Standard OpenDataSoft search, facet and export operations over the dataset
-
-The portal supports CORS for browser-based clients and exposes results through its standard records and exports endpoints. Responses are paginated; the catalogue page notes a default page size of 20 records per request.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install passantenfrequenz-stadt-stgallen-sdk
 luarocks install passantenfrequenz-stadt-stgallen-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { PassantenfrequenzStadtStgallenSDK } from 'passantenfrequenz-stadt-stgallen'
 
-const client = new PassantenfrequenzStadtStgallenSDK({})
+const client = new PassantenfrequenzStadtStgallenSDK({
+  apikey: process.env.PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY,
+})
 
 // List all searchs
 const searchs = await client.Search().list()
+console.log(searchs.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Search** | Search, filter and page through pedestrian-count records from the Vadianstrasse sensor via the OpenDataSoft records endpoint exposed under the portal's `/api` base. | `/records/1.0/search/` |
+| **Search** |  | `/records/1.0/search/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from passantenfrequenzstadtstgallen_sdk import PassantenfrequenzStadtStgallenSDK
 
-client = PassantenfrequenzStadtStgallenSDK({})
+client = PassantenfrequenzStadtStgallenSDK({
+    "apikey": os.environ.get("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
+})
 
 # List all searchs
-searchs, err = client.Search(None).list(None, None)
+searchs, err = client.Search().list()
+print(searchs)
 ```
 
 ### PHP
@@ -124,10 +118,13 @@ searchs, err = client.Search(None).list(None, None)
 <?php
 require_once 'passantenfrequenzstadtstgallen_sdk.php';
 
-$client = new PassantenfrequenzStadtStgallenSDK([]);
+$client = new PassantenfrequenzStadtStgallenSDK([
+    "apikey" => getenv("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
+]);
 
 // List all searchs
-[$searchs, $err] = $client->Search(null)->list(null, null);
+[$searchs, $err] = $client->Search()->list();
+print_r($searchs);
 ```
 
 ### Golang
@@ -135,10 +132,13 @@ $client = new PassantenfrequenzStadtStgallenSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go"
 
-client := sdk.NewPassantenfrequenzStadtStgallenSDK(map[string]any{})
+client := sdk.NewPassantenfrequenzStadtStgallenSDK(map[string]any{
+    "apikey": os.Getenv("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
+})
 
 // List all searchs
 searchs, err := client.Search(nil).List(nil, nil)
+fmt.Println(searchs)
 ```
 
 ### Ruby
@@ -146,10 +146,13 @@ searchs, err := client.Search(nil).List(nil, nil)
 ```ruby
 require_relative "PassantenfrequenzStadtStgallen_sdk"
 
-client = PassantenfrequenzStadtStgallenSDK.new({})
+client = PassantenfrequenzStadtStgallenSDK.new({
+  "apikey" => ENV["PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"],
+})
 
 # List all searchs
-searchs, err = client.Search(nil).list(nil, nil)
+searchs, err = client.Search().list
+puts searchs
 ```
 
 ### Lua
@@ -157,10 +160,13 @@ searchs, err = client.Search(nil).list(nil, nil)
 ```lua
 local sdk = require("passantenfrequenz-stadt-stgallen_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
+})
 
 -- List all searchs
-local searchs, err = client:Search(nil):list(nil, nil)
+local searchs, err = client:Search():list()
+print(searchs)
 ```
 
 ## Unit testing in offline mode
@@ -179,25 +185,21 @@ const result = await client.Search().load({ id: 'test01' })
 ### Python
 
 ```python
-client = PassantenfrequenzStadtStgallenSDK.test(None, None)
-result, err = client.Search(None).load(
-    {"id": "test01"}, None
-)
+client = PassantenfrequenzStadtStgallenSDK.test()
+result, err = client.Search().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = PassantenfrequenzStadtStgallenSDK::test(null, null);
-[$result, $err] = $client->Search(null)->load(
-    ["id" => "test01"], null
-);
+$client = PassantenfrequenzStadtStgallenSDK::test();
+[$result, $err] = $client->Search()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Search(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -206,19 +208,15 @@ result, err := client.Search(nil).Load(
 ### Ruby
 
 ```ruby
-client = PassantenfrequenzStadtStgallenSDK.test(nil, nil)
-result, err = client.Search(nil).load(
-  { "id" => "test01" }, nil
-)
+client = PassantenfrequenzStadtStgallenSDK.test
+result, err = client.Search().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Search(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Search():load({ id = "test01" })
 ```
 
 ## How it works
@@ -322,15 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Passantenfrequenz Stadt St.Gallen
-
-- Upstream: [https://daten.stadt.sg.ch/](https://daten.stadt.sg.ch/)
-- API docs: [https://daten.stadt.sg.ch/api](https://daten.stadt.sg.ch/api)
-
-- Open data published by the [City of St.Gallen](https://daten.stadt.sg.ch/) via its open data portal
-- Refer to the portal's [terms and conditions](https://daten.stadt.sg.ch/terms/terms-and-conditions/) for reuse and attribution rules
-- No explicit licence string was surfaced in the catalogue page
 
 ---
 

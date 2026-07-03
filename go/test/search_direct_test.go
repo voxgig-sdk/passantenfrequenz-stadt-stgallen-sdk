@@ -93,12 +93,14 @@ func searchDirectSetup(mockres any) *searchDirectSetupResult {
 	env := envOverride(map[string]any{
 		"PASSANTENFREQUENZSTADTSTGALLEN_TEST_SEARCH_ENTID": map[string]any{},
 		"PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE":    "FALSE",
+		"PASSANTENFREQUENZSTADTSTGALLEN_APIKEY":       "NONE",
 	})
 
 	live := env["PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["PASSANTENFREQUENZSTADTSTGALLEN_APIKEY"],
 		}
 		client := sdk.NewPassantenfrequenzStadtStgallenSDK(mergedOpts)
 

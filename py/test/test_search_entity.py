@@ -92,6 +92,7 @@ def _search_basic_setup(extra):
         "PASSANTENFREQUENZSTADTSTGALLEN_TEST_SEARCH_ENTID": idmap,
         "PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE": "FALSE",
         "PASSANTENFREQUENZSTADTSTGALLEN_TEST_EXPLAIN": "FALSE",
+        "PASSANTENFREQUENZSTADTSTGALLEN_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _search_basic_setup(extra):
     if env.get("PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("PASSANTENFREQUENZSTADTSTGALLEN_APIKEY"),
             },
             extra or {},
         ])

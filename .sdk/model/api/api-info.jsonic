@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Stadt St.Gallen Open Data Portal"
         url: "https://daten.stadt.sg.ch"

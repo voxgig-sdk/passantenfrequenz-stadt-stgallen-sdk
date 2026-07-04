@@ -245,6 +245,9 @@ func (sdk *PassantenfrequenzStadtStgallenSDK) Direct(fetchargs map[string]any) (
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *PassantenfrequenzStadtStgallenSDK) Search(data map[string]any) PassantenfrequenzStadtStgallenEntity {
 	return NewSearchEntityFunc(sdk, data)
 }

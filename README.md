@@ -10,26 +10,24 @@ This is an unofficial SDK for the Passantenfrequenz Stadt St.Gallen public API, 
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/passantenfrequenz-stadt-stgallen` | `npm install @voxgig-sdk/passantenfrequenz-stadt-stgallen` |
-| Python | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | `pip install voxgig-sdk-passantenfrequenz-stadt-stgallen` |
-| PHP | `voxgig-sdk/passantenfrequenz-stadt-stgallen` | `composer require voxgig-sdk/passantenfrequenz-stadt-stgallen` |
-| Golang | `github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go` | `go get github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go` |
-| Ruby | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | `gem install voxgig-sdk-passantenfrequenz-stadt-stgallen` |
-| Lua | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | `luarocks install voxgig-sdk-passantenfrequenz-stadt-stgallen` |
+| TypeScript | `@voxgig-sdk/passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
+| Python | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
+| PHP | `voxgig-sdk/passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go` | `go get github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go@latest` |
+| Ruby | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
+| Lua | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { PassantenfrequenzStadtStgallenSDK } from 'passantenfrequenz-stadt-stgallen'
+import { PassantenfrequenzStadtStgallenSDK } from '@voxgig-sdk/passantenfrequenz-stadt-stgallen'
 
-const client = new PassantenfrequenzStadtStgallenSDK({
-  apikey: process.env.PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY,
-})
+const client = new PassantenfrequenzStadtStgallenSDK()
 
 // List all searchs
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 console.log(searchs.data)
 ```
 
@@ -71,7 +69,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Search** |  | `/records/1.0/search/` |
+| **Search** | The Search entity (list). | `/records/1.0/search/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -81,15 +79,12 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from passantenfrequenzstadtstgallen_sdk import PassantenfrequenzStadtStgallenSDK
 
-client = PassantenfrequenzStadtStgallenSDK({
-    "apikey": os.environ.get("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
-})
+client = PassantenfrequenzStadtStgallenSDK()
 
 # List all searchs
-searchs, err = client.Search().list()
+searchs = client.search.list()
 print(searchs)
 ```
 
@@ -99,12 +94,10 @@ print(searchs)
 <?php
 require_once 'passantenfrequenzstadtstgallen_sdk.php';
 
-$client = new PassantenfrequenzStadtStgallenSDK([
-    "apikey" => getenv("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
-]);
+$client = new PassantenfrequenzStadtStgallenSDK();
 
-// List all searchs
-[$searchs, $err] = $client->Search()->list();
+// List all searchs (throws on error)
+$searchs = $client->search()->list();
 print_r($searchs);
 ```
 
@@ -113,9 +106,7 @@ print_r($searchs);
 ```go
 import sdk "github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go"
 
-client := sdk.NewPassantenfrequenzStadtStgallenSDK(map[string]any{
-    "apikey": os.Getenv("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
-})
+client := sdk.New()
 
 // List all searchs
 searchs, err := client.Search(nil).List(nil, nil)
@@ -127,12 +118,10 @@ fmt.Println(searchs)
 ```ruby
 require_relative "PassantenfrequenzStadtStgallen_sdk"
 
-client = PassantenfrequenzStadtStgallenSDK.new({
-  "apikey" => ENV["PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"],
-})
+client = PassantenfrequenzStadtStgallenSDK.new
 
 # List all searchs
-searchs, err = client.Search().list
+searchs = client.search.list
 puts searchs
 ```
 
@@ -141,12 +130,10 @@ puts searchs
 ```lua
 local sdk = require("passantenfrequenz-stadt-stgallen_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("PASSANTENFREQUENZ-STADT-STGALLEN_APIKEY"),
-})
+local client = sdk.new()
 
 -- List all searchs
-local searchs, err = client:Search():list()
+local searchs, err = client:search():list()
 print(searchs)
 ```
 
@@ -159,7 +146,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = PassantenfrequenzStadtStgallenSDK.test()
-const result = await client.Search().load({ id: 'test01' })
+const result = await client.search.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -167,14 +154,14 @@ const result = await client.Search().load({ id: 'test01' })
 
 ```python
 client = PassantenfrequenzStadtStgallenSDK.test()
-result, err = client.Search().load({"id": "test01"})
+result = client.search.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = PassantenfrequenzStadtStgallenSDK::test();
-[$result, $err] = $client->Search()->load(["id" => "test01"]);
+$result = $client->search()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -190,14 +177,14 @@ result, err := client.Search(nil).Load(
 
 ```ruby
 client = PassantenfrequenzStadtStgallenSDK.test
-result, err = client.Search().load({ "id" => "test01" })
+result = client.search.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Search():load({ id = "test01" })
+local result, err = client:search():load({ id = "test01" })
 ```
 
 ## How it works
@@ -250,7 +237,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -259,7 +246,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -277,7 +264,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

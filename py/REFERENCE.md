@@ -8,7 +8,7 @@ Complete API reference for the PassantenfrequenzStadtStgallen Python SDK.
 ### Constructor
 
 ```python
-from passantenfrequenz-stadt-stgallen_sdk import PassantenfrequenzStadtStgallenSDK
+from passantenfrequenzstadtstgallen_sdk import PassantenfrequenzStadtStgallenSDK
 
 client = PassantenfrequenzStadtStgallenSDK(options)
 ```
@@ -87,19 +87,19 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | ``$ARRAY`` | No |  |
-| `nhit` | ``$INTEGER`` | No |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `record` | ``$ARRAY`` | No |  |
+| `facet_group` | `list` | No |  |
+| `nhit` | `int` | No |  |
+| `parameter` | `dict` | No |  |
+| `record` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Search().list({})
+results = client.Search().list()
 for search in results:
     print(search)
 ```

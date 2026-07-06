@@ -16,8 +16,7 @@ type Search struct {
 	Record *[]any `json:"record,omitempty"`
 }
 
-// SearchListMatch mirrors the search fields as an all-optional match
-// filter (Go analog of Partial<Search>).
+// SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
 	FacetGroup *[]any `json:"facet_group,omitempty"`
 	Nhit *int `json:"nhit,omitempty"`

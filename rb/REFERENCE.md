@@ -8,7 +8,7 @@ Complete API reference for the PassantenfrequenzStadtStgallen Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'passantenfrequenz-stadt-stgallen_sdk'
+require_relative 'PassantenfrequenzStadtStgallen_sdk'
 
 client = PassantenfrequenzStadtStgallenSDK.new(options)
 ```
@@ -93,19 +93,19 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | ``$ARRAY`` | No |  |
-| `nhit` | ``$INTEGER`` | No |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `record` | ``$ARRAY`` | No |  |
+| `facet_group` | `Array` | No |  |
+| `nhit` | `Integer` | No |  |
+| `parameter` | `Hash` | No |  |
+| `record` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Search.list(nil)
+results = client.Search.list
 ```
 
 ### Common Methods

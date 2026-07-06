@@ -21,7 +21,7 @@ class Search
     public ?array $record = null;
 }
 
-/** Match filter for Search#list (any subset of Search fields). */
+/** Request payload for Search#list. */
 class SearchListMatch
 {
     public ?array $facet_group = null;

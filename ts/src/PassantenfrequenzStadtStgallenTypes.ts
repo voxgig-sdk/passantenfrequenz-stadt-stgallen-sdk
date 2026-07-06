@@ -12,5 +12,10 @@ export interface Search {
   record?: any[]
 }
 
-export type SearchListMatch = Partial<Search>
+export interface SearchListMatch {
+  facet_group?: any[]
+  nhit?: number
+  parameter?: Record<string, any>
+  record?: any[]
+}
 

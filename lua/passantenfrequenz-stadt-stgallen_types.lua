@@ -13,6 +13,10 @@
 ---@field record? table
 
 ---@class SearchListMatch
+---@field facet_group? table
+---@field nhit? number
+---@field parameter? table
+---@field record? table
 
 local M = {}
 

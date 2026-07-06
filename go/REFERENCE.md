@@ -97,10 +97,10 @@ search := client.Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | ``$ARRAY`` | No |  |
-| `nhit` | ``$INTEGER`` | No |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `record` | ``$ARRAY`` | No |  |
+| `facet_group` | `[]any` | No |  |
+| `nhit` | `int` | No |  |
+| `parameter` | `map[string]any` | No |  |
+| `record` | `[]any` | No |  |
 
 ### Operations
 

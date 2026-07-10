@@ -16,9 +16,9 @@ main: {
           url: "https://daten.stadt.sg.ch/api"
         }
       ]
+      summary: "Measures pedestrian traffic in St."
       title: "Passantenfrequenz Stadt St.Gallen"
       version: "1.0.0"
+      website: "https://daten.stadt.sg.ch"
     }
   }
-}
-

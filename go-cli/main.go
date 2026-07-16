@@ -27,7 +27,20 @@ func main() {
 }
 
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
-	client := sdk.NewPassantenfrequenzStadtStgallenSDK(nil)
+	// Configure from the environment: PASSANTENFREQUENZ_STADT_STGALLEN_APIKEY carries the API key and
+	// PASSANTENFREQUENZ_STADT_STGALLEN_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("PASSANTENFREQUENZ_STADT_STGALLEN_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("PASSANTENFREQUENZ_STADT_STGALLEN_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewPassantenfrequenzStadtStgallenSDK(opts)
 
 	r, err := eng.NewRegistry()
 	if err != nil {

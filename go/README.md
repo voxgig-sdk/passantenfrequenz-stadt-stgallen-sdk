@@ -260,10 +260,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"facet_group"` |  |
-| `"nhit"` |  |
-| `"parameter"` |  |
-| `"record"` |  |
+| `"facet_groups"` |  |
+| `"nhits"` |  |
+| `"parameters"` |  |
+| `"records"` |  |
 
 Operations: List.
 
@@ -288,10 +288,10 @@ Create an instance: `search := client.Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_group` | `[]any` |  |
-| `nhit` | `int` |  |
-| `parameter` | `map[string]any` |  |
-| `record` | `[]any` |  |
+| `facet_groups` | `[]any` |  |
+| `nhits` | `int` |  |
+| `parameters` | `map[string]any` |  |
+| `records` | `[]any` |  |
 
 #### Example: List
 

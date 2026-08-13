@@ -37,7 +37,7 @@ begin
   # list returns an Array of Search records — iterate directly.
   searchs = client.Search.list
   searchs.each do |item|
-    puts "#{item["facet_group"]}"
+    puts "#{item["facet_groups"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = PassantenfrequenzStadtStgallenSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 search = client.Search.list()
 puts search
 ```
@@ -236,10 +237,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `facet_group` |  |
-| `nhit` |  |
-| `parameter` |  |
-| `record` |  |
+| `facet_groups` |  |
+| `nhits` |  |
+| `parameters` |  |
+| `records` |  |
 
 Operations: List.
 
@@ -264,10 +265,10 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_group` | `Array` |  |
-| `nhit` | `Integer` |  |
-| `parameter` | `Hash` |  |
-| `record` | `Array` |  |
+| `facet_groups` | `Array` |  |
+| `nhits` | `Integer` |  |
+| `parameters` | `Hash` |  |
+| `records` | `Array` |  |
 
 #### Example: List
 

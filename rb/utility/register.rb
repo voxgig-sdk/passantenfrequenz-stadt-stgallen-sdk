@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ PassantenfrequenzStadtStgallenUtility.registrar = ->(u) {
   u.prepare_params = PassantenfrequenzStadtStgallenUtilities::PrepareParams
   u.prepare_path = PassantenfrequenzStadtStgallenUtilities::PreparePath
   u.prepare_query = PassantenfrequenzStadtStgallenUtilities::PrepareQuery
+  u.graphql_body = PassantenfrequenzStadtStgallenUtilities::GraphqlBody
+  u.graphql_errors = PassantenfrequenzStadtStgallenUtilities::GraphqlErrors
   u.result_basic = PassantenfrequenzStadtStgallenUtilities::ResultBasic
   u.result_body = PassantenfrequenzStadtStgallenUtilities::ResultBody
   u.result_headers = PassantenfrequenzStadtStgallenUtilities::ResultHeaders

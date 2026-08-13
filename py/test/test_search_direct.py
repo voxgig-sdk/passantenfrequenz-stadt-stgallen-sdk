@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from passantenfrequenzstadtstgallen_sdk.utility.voxgig_struct import voxgig_struct as vs
 from passantenfrequenzstadtstgallen_sdk import PassantenfrequenzStadtStgallenSDK
-from core import helpers
+from passantenfrequenzstadtstgallen_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _search_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "PASSANTENFREQUENZSTADTSTGALLEN_TEST_SEARCH_ENTID": {},
-        "PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE": "FALSE",
+        "PASSANTENFREQUENZ_STADT_STGALLEN_TEST_SEARCH_ENTID": {},
+        "PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE") == "TRUE"
+    live = env.get("PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

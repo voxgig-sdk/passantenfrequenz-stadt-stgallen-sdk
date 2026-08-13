@@ -90,10 +90,10 @@ local search = client:Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | `table` | No |  |
-| `nhit` | `number` | No |  |
-| `parameter` | `table` | No |  |
-| `record` | `table` | No |  |
+| `facet_groups` | `table` | No |  |
+| `nhits` | `number` | No |  |
+| `parameters` | `table` | No |  |
+| `records` | `table` | No |  |
 
 ### Operations
 

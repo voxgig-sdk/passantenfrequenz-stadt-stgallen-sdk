@@ -87,10 +87,10 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | `list` | No |  |
-| `nhit` | `int` | No |  |
-| `parameter` | `dict` | No |  |
-| `record` | `list` | No |  |
+| `facet_groups` | `list` | No |  |
+| `nhits` | `int` | No |  |
+| `parameters` | `dict` | No |  |
+| `records` | `list` | No |  |
 
 ### Operations
 

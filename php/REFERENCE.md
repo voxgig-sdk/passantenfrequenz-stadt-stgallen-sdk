@@ -92,10 +92,10 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | `array` | No |  |
-| `nhit` | `int` | No |  |
-| `parameter` | `array` | No |  |
-| `record` | `array` | No |  |
+| `facet_groups` | `array` | No |  |
+| `nhits` | `int` | No |  |
+| `parameters` | `array` | No |  |
+| `records` | `array` | No |  |
 
 ### Operations
 

@@ -43,8 +43,8 @@ class PassantenfrequenzStadtStgallenTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE');
-        $override = self::getenv('PASSANTENFREQUENZSTADTSTGALLEN_TEST_OVERRIDE');
+        $live = self::getenv('PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE');
+        $override = self::getenv('PASSANTENFREQUENZ_STADT_STGALLEN_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class PassantenfrequenzStadtStgallenTestRunner
             }
         }
 
-        $explain = self::getenv('PASSANTENFREQUENZSTADTSTGALLEN_TEST_EXPLAIN');
+        $explain = self::getenv('PASSANTENFREQUENZ_STADT_STGALLEN_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['PASSANTENFREQUENZSTADTSTGALLEN_TEST_EXPLAIN'] = $explain;
+            $m['PASSANTENFREQUENZ_STADT_STGALLEN_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

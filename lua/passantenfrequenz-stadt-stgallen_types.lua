@@ -7,16 +7,16 @@
 -- edit by hand.
 
 ---@class Search
----@field facet_group? table
----@field nhit? number
----@field parameter? table
----@field record? table
+---@field facet_groups? table
+---@field nhits? number
+---@field parameters? table
+---@field records? table
 
 ---@class SearchListMatch
----@field facet_group? table
----@field nhit? number
----@field parameter? table
----@field record? table
+---@field facet_groups? table
+---@field nhits? number
+---@field parameters? table
+---@field records? table
 
 local M = {}
 

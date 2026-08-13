@@ -15,18 +15,18 @@ declare(strict_types=1);
 /** Search entity data model. */
 class Search
 {
-    public ?array $facet_group = null;
-    public ?int $nhit = null;
-    public ?array $parameter = null;
-    public ?array $record = null;
+    public ?array $facet_groups = null;
+    public ?int $nhits = null;
+    public ?array $parameters = null;
+    public ?array $records = null;
 }
 
 /** Request payload for Search#list. */
 class SearchListMatch
 {
-    public ?array $facet_group = null;
-    public ?int $nhit = null;
-    public ?array $parameter = null;
-    public ?array $record = null;
+    public ?array $facet_groups = null;
+    public ?int $nhits = null;
+    public ?array $parameters = null;
+    public ?array $records = null;
 }
 

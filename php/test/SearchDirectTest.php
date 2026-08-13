@@ -66,11 +66,11 @@ function search_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "PASSANTENFREQUENZSTADTSTGALLEN_TEST_SEARCH_ENTID" => [],
-        "PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE" => "FALSE",
+        "PASSANTENFREQUENZ_STADT_STGALLEN_TEST_SEARCH_ENTID" => [],
+        "PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE"] === "TRUE";
+    $live = $env["PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

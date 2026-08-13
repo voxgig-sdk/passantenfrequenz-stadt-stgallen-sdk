@@ -98,10 +98,10 @@ fmt.Println(search.GetName()) // "search"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | `[]any` | No |  |
-| `nhit` | `int` | No |  |
-| `parameter` | `map[string]any` | No |  |
-| `record` | `[]any` | No |  |
+| `facet_groups` | `[]any` | No |  |
+| `nhits` | `int` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `records` | `[]any` | No |  |
 
 ### Operations
 

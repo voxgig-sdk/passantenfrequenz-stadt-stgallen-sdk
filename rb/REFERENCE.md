@@ -93,10 +93,10 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | `Array` | No |  |
-| `nhit` | `Integer` | No |  |
-| `parameter` | `Hash` | No |  |
-| `record` | `Array` | No |  |
+| `facet_groups` | `Array` | No |  |
+| `nhits` | `Integer` | No |  |
+| `parameters` | `Hash` | No |  |
+| `records` | `Array` | No |  |
 
 ### Operations
 

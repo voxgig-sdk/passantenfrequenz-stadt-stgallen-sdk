@@ -116,10 +116,10 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_group` | `any[]` | No |  |
-| `nhit` | `number` | No |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `record` | `any[]` | No |  |
+| `facet_groups` | `any[]` | No |  |
+| `nhits` | `number` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `records` | `any[]` | No |  |
 
 ### Operations
 

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import PassantenfrequenzStadtStgallenControl
-from core.error import PassantenfrequenzStadtStgallenError
-from core.result import PassantenfrequenzStadtStgallenResult
-from core.spec import PassantenfrequenzStadtStgallenSpec
+from passantenfrequenzstadtstgallen_sdk.config import make_config
+from passantenfrequenzstadtstgallen_sdk.features import _make_feature
+from passantenfrequenzstadtstgallen_sdk.core.control import PassantenfrequenzStadtStgallenControl
+from passantenfrequenzstadtstgallen_sdk.core.error import PassantenfrequenzStadtStgallenError
+from passantenfrequenzstadtstgallen_sdk.core.result import PassantenfrequenzStadtStgallenResult
+from passantenfrequenzstadtstgallen_sdk.core.spec import PassantenfrequenzStadtStgallenSpec
 
 
 # True when this SDK was generated with the named feature.

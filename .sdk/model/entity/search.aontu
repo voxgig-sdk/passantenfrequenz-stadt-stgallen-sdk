@@ -6,22 +6,22 @@ main: kit: entity: search: {
 
   fields: [
     {
-      name: "facet_group"
+      name: "facet_groups"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "nhit"
+      name: "nhits"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "record"
+      name: "records"
       req: false
       type: "`$ARRAY`"
     }

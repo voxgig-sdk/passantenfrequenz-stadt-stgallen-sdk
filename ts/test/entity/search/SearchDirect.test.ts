@@ -19,11 +19,15 @@ import {
 describe('SearchDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new PassantenfrequenzStadtStgallenSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -80,17 +84,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'PASSANTENFREQUENZSTADTSTGALLEN_TEST_SEARCH_ENTID': {},
-    'PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE': 'FALSE',
+    'PASSANTENFREQUENZ_STADT_STGALLEN_TEST_SEARCH_ENTID': {},
+    'PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE
+  const live = 'TRUE' === env.PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE
 
   if (live) {
     const client = new PassantenfrequenzStadtStgallenSDK({
     })
 
-    let idmap: any = env['PASSANTENFREQUENZSTADTSTGALLEN_TEST_SEARCH_ENTID']
+    let idmap: any = env['PASSANTENFREQUENZ_STADT_STGALLEN_TEST_SEARCH_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

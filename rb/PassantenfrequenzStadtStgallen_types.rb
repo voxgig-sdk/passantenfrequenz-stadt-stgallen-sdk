@@ -10,43 +10,43 @@
 
 # Search entity data model.
 #
-# @!attribute [rw] facet_group
+# @!attribute [rw] facet_groups
 #   @return [Array, nil]
 #
-# @!attribute [rw] nhit
+# @!attribute [rw] nhits
 #   @return [Integer, nil]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
-# @!attribute [rw] record
+# @!attribute [rw] records
 #   @return [Array, nil]
 Search = Struct.new(
-  :facet_group,
-  :nhit,
-  :parameter,
-  :record,
+  :facet_groups,
+  :nhits,
+  :parameters,
+  :records,
   keyword_init: true
 )
 
 # Request payload for Search#list.
 #
-# @!attribute [rw] facet_group
+# @!attribute [rw] facet_groups
 #   @return [Array, nil]
 #
-# @!attribute [rw] nhit
+# @!attribute [rw] nhits
 #   @return [Integer, nil]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
-# @!attribute [rw] record
+# @!attribute [rw] records
 #   @return [Array, nil]
 SearchListMatch = Struct.new(
-  :facet_group,
-  :nhit,
-  :parameter,
-  :record,
+  :facet_groups,
+  :nhits,
+  :parameters,
+  :records,
   keyword_init: true
 )
 

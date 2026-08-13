@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# PassantenfrequenzStadtStgallen SDK exists test
 
 import pytest
 from passantenfrequenzstadtstgallen_sdk import PassantenfrequenzStadtStgallenSDK

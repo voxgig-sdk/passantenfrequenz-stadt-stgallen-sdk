@@ -16,11 +16,11 @@
 import pytest
 
 from passantenfrequenzstadtstgallen_sdk import PassantenfrequenzStadtStgallenSDK
-from core.error import PassantenfrequenzStadtStgallenError
-from core.result import PassantenfrequenzStadtStgallenResult
-from core.response import PassantenfrequenzStadtStgallenResponse
-from core.spec import PassantenfrequenzStadtStgallenSpec
-from feature.base_feature import PassantenfrequenzStadtStgallenBaseFeature
+from passantenfrequenzstadtstgallen_sdk.core.error import PassantenfrequenzStadtStgallenError
+from passantenfrequenzstadtstgallen_sdk.core.result import PassantenfrequenzStadtStgallenResult
+from passantenfrequenzstadtstgallen_sdk.core.response import PassantenfrequenzStadtStgallenResponse
+from passantenfrequenzstadtstgallen_sdk.core.spec import PassantenfrequenzStadtStgallenSpec
+from passantenfrequenzstadtstgallen_sdk.feature.base_feature import PassantenfrequenzStadtStgallenBaseFeature
 
 
 def _client():

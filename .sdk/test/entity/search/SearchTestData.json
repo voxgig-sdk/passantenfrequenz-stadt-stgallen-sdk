@@ -2,32 +2,32 @@
   "existing": {
     "search": {
       "SEARCH00": {
-        "facet_group": [],
-        "nhit": "s29",
-        "parameter": {},
-        "record": []
+        "facet_groups": [],
+        "nhits": "s29",
+        "parameters": {},
+        "records": []
       },
       "SEARCH01": {
-        "facet_group": [],
-        "nhit": "s51",
-        "parameter": {},
-        "record": []
+        "facet_groups": [],
+        "nhits": "s51",
+        "parameters": {},
+        "records": []
       },
       "SEARCH02": {
-        "facet_group": [],
-        "nhit": "s79",
-        "parameter": {},
-        "record": []
+        "facet_groups": [],
+        "nhits": "s79",
+        "parameters": {},
+        "records": []
       }
     }
   },
   "new": {
     "search": {
       "search_ref01": {
-        "facet_group": [],
-        "nhit": "sa1",
-        "parameter": {},
-        "record": []
+        "facet_groups": [],
+        "nhits": "sa1",
+        "parameters": {},
+        "records": []
       }
     }
   }

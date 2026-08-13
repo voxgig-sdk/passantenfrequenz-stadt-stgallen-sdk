@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ PassantenfrequenzStadtStgallenUtility::setRegistrar(function (PassantenfrequenzS
     $u->prepare_params = [PassantenfrequenzStadtStgallenPrepareParams::class, 'call'];
     $u->prepare_path = [PassantenfrequenzStadtStgallenPreparePath::class, 'call'];
     $u->prepare_query = [PassantenfrequenzStadtStgallenPrepareQuery::class, 'call'];
+    $u->graphql_body = [PassantenfrequenzStadtStgallenGraphql::class, 'body'];
+    $u->graphql_errors = [PassantenfrequenzStadtStgallenGraphql::class, 'errors'];
     $u->result_basic = [PassantenfrequenzStadtStgallenResultBasic::class, 'call'];
     $u->result_body = [PassantenfrequenzStadtStgallenResultBody::class, 'call'];
     $u->result_headers = [PassantenfrequenzStadtStgallenResultHeaders::class, 'call'];

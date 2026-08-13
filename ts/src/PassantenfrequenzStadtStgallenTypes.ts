@@ -6,16 +6,16 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Search {
-  facet_group?: any[]
-  nhit?: number
-  parameter?: Record<string, any>
-  record?: any[]
+  facet_groups?: any[]
+  nhits?: number
+  parameters?: Record<string, any>
+  records?: any[]
 }
 
 export interface SearchListMatch {
-  facet_group?: any[]
-  nhit?: number
-  parameter?: Record<string, any>
-  record?: any[]
+  facet_groups?: any[]
+  nhits?: number
+  parameters?: Record<string, any>
+  records?: any[]
 }
 

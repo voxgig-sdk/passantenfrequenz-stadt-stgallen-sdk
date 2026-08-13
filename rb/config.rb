@@ -27,28 +27,28 @@ module PassantenfrequenzStadtStgallenConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "facet_group",
+              "name" => "facet_groups",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
             },
             {
               "active" => true,
-              "name" => "nhit",
+              "name" => "nhits",
               "req" => false,
               "type" => "`$INTEGER`",
               "index$" => 1,
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 2,
             },
             {
               "active" => true,
-              "name" => "record",
+              "name" => "records",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 3,
@@ -160,6 +160,7 @@ module PassantenfrequenzStadtStgallenConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/records/1.0/search/",
                   "parts" => [

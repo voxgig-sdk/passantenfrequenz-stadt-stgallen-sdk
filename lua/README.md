@@ -43,7 +43,7 @@ local searchs, err = client:Search():list()
 if err then error(err) end
 
 for _, item in ipairs(searchs) do
-  print(item["facet_group"])
+  print(item["facet_groups"])
 end
 ```
 
@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local search, err = client:Search():load()
+    local search, err = client:Search():list()
     if err then error(err) end
-    -- search is the loaded record
+    -- search is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -231,10 +231,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `facet_group` |  |
-| `nhit` |  |
-| `parameter` |  |
-| `record` |  |
+| `facet_groups` |  |
+| `nhits` |  |
+| `parameters` |  |
+| `records` |  |
 
 Operations: List.
 
@@ -259,10 +259,10 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_group` | `table` |  |
-| `nhit` | `number` |  |
-| `parameter` | `table` |  |
-| `record` | `table` |  |
+| `facet_groups` | `table` |  |
+| `nhits` | `number` |  |
+| `parameters` | `table` |  |
+| `records` | `table` |  |
 
 #### Example: List
 

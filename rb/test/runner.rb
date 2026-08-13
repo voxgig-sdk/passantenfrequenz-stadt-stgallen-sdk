@@ -23,8 +23,8 @@ module PassantenfrequenzStadtStgallenTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("PASSANTENFREQUENZSTADTSTGALLEN_TEST_LIVE")
-    override = getenv("PASSANTENFREQUENZSTADTSTGALLEN_TEST_OVERRIDE")
+    live = getenv("PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE")
+    override = getenv("PASSANTENFREQUENZ_STADT_STGALLEN_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module PassantenfrequenzStadtStgallenTestRunner
       end
     end
 
-    explain = getenv("PASSANTENFREQUENZSTADTSTGALLEN_TEST_EXPLAIN")
-    m["PASSANTENFREQUENZSTADTSTGALLEN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("PASSANTENFREQUENZ_STADT_STGALLEN_TEST_EXPLAIN")
+    m["PASSANTENFREQUENZ_STADT_STGALLEN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

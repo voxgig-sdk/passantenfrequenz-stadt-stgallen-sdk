@@ -38,7 +38,7 @@ try {
     // list() returns an array of Search records — iterate directly.
     $searchs = $client->Search()->list();
     foreach ($searchs as $item) {
-        echo $item["facet_group"] . "\n";
+        echo $item["facet_groups"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = PassantenfrequenzStadtStgallenSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $search = $client->Search()->list();
 print_r($search);
 ```
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -246,10 +247,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `facet_group` |  |
-| `nhit` |  |
-| `parameter` |  |
-| `record` |  |
+| `facet_groups` |  |
+| `nhits` |  |
+| `parameters` |  |
+| `records` |  |
 
 Operations: List.
 
@@ -274,10 +275,10 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_group` | `array` |  |
-| `nhit` | `int` |  |
-| `parameter` | `array` |  |
-| `record` | `array` |  |
+| `facet_groups` | `array` |  |
+| `nhits` | `int` |  |
+| `parameters` | `array` |  |
+| `records` | `array` |  |
 
 #### Example: List
 

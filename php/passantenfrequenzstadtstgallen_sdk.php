@@ -40,7 +40,7 @@ class PassantenfrequenzStadtStgallenSDK
         $utility = new PassantenfrequenzStadtStgallenUtility();
         $this->_utility = $utility;
 
-        $config = PassantenfrequenzStadtStgallenConfig::make_config();
+        $config = PassantenfrequenzStadtStgallenConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

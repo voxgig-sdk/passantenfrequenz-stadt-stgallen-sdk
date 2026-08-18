@@ -23,8 +23,8 @@ class PassantenfrequenzStadtStgallenSDK:
         utility = PassantenfrequenzStadtStgallenUtility()
         self._utility = utility
 
-        from passantenfrequenzstadtstgallen_sdk.config import make_config
-        config = make_config()
+        from passantenfrequenzstadtstgallen_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

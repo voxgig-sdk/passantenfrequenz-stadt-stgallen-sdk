@@ -28,7 +28,7 @@ class PassantenfrequenzStadtStgallenSDK
     utility = PassantenfrequenzStadtStgallenUtility.new
     @_utility = utility
 
-    config = PassantenfrequenzStadtStgallenConfig.make_config
+    config = PassantenfrequenzStadtStgallenConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

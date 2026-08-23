@@ -6,7 +6,7 @@ The Golang SDK for the PassantenfrequenzStadtStgallen API — an entity-oriented
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Search(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,9 +260,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"facet_groups"` |  |
-| `"nhits"` |  |
-| `"parameters"` |  |
+| `"facet_groups"` | Facet groups for filtering options |
+| `"nhits"` | Total number of records matching the query |
+| `"parameters"` | Query parameters used for the search |
 | `"records"` |  |
 
 Operations: List.
@@ -288,9 +288,9 @@ Create an instance: `search := client.Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_groups` | `[]any` |  |
-| `nhits` | `int` |  |
-| `parameters` | `map[string]any` |  |
+| `facet_groups` | `[]any` | Facet groups for filtering options |
+| `nhits` | `int` | Total number of records matching the query |
+| `parameters` | `map[string]any` | Query parameters used for the search |
 | `records` | `[]any` |  |
 
 #### Example: List

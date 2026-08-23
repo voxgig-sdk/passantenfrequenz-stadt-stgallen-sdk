@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "PassantenfrequenzStadtStgallen",
+      slug = "passantenfrequenz-stadt-stgallen",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -29,14 +32,17 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "facet_groups",
+            ["short"] = "Facet groups for filtering options",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "nhits",
+            ["short"] = "Total number of records matching the query",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "parameters",
+            ["short"] = "Query parameters used for the search",
             ["type"] = "`$OBJECT`",
           },
           {

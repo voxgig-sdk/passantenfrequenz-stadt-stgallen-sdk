@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'PassantenfrequenzStadtStgallen',
+        slug: "passantenfrequenz-stadt-stgallen",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,14 +67,17 @@ class Config {
       "fields": [
         {
           "name": "facet_groups",
+          "short": "Facet groups for filtering options",
           "type": "`$ARRAY`"
         },
         {
           "name": "nhits",
+          "short": "Total number of records matching the query",
           "type": "`$INTEGER`"
         },
         {
           "name": "parameters",
+          "short": "Query parameters used for the search",
           "type": "`$OBJECT`"
         },
         {

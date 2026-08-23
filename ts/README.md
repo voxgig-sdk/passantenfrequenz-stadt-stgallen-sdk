@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,9 +287,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `facet_groups` |  |
-| `nhits` |  |
-| `parameters` |  |
+| `facet_groups` | Facet groups for filtering options |
+| `nhits` | Total number of records matching the query |
+| `parameters` | Query parameters used for the search |
 | `records` |  |
 
 Operations: list.
@@ -315,9 +315,9 @@ Create an instance: `const search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_groups` | `any[]` |  |
-| `nhits` | `number` |  |
-| `parameters` | `Record<string, any>` |  |
+| `facet_groups` | `any[]` | Facet groups for filtering options |
+| `nhits` | `number` | Total number of records matching the query |
+| `parameters` | `Record<string, any>` | Query parameters used for the search |
 | `records` | `any[]` |  |
 
 #### Example: List

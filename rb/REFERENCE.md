@@ -93,9 +93,9 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_groups` | `Array` | No |  |
-| `nhits` | `Integer` | No |  |
-| `parameters` | `Hash` | No |  |
+| `facet_groups` | `Array` | No | Facet groups for filtering options |
+| `nhits` | `Integer` | No | Total number of records matching the query |
+| `parameters` | `Hash` | No | Query parameters used for the search |
 | `records` | `Array` | No |  |
 
 ### Operations

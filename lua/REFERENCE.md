@@ -90,9 +90,9 @@ local search = client:Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_groups` | `table` | No |  |
-| `nhits` | `number` | No |  |
-| `parameters` | `table` | No |  |
+| `facet_groups` | `table` | No | Facet groups for filtering options |
+| `nhits` | `number` | No | Total number of records matching the query |
+| `parameters` | `table` | No | Query parameters used for the search |
 | `records` | `table` | No |  |
 
 ### Operations

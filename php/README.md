@@ -247,9 +247,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `facet_groups` |  |
-| `nhits` |  |
-| `parameters` |  |
+| `facet_groups` | Facet groups for filtering options |
+| `nhits` | Total number of records matching the query |
+| `parameters` | Query parameters used for the search |
 | `records` |  |
 
 Operations: List.
@@ -275,9 +275,9 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_groups` | `array` |  |
-| `nhits` | `int` |  |
-| `parameters` | `array` |  |
+| `facet_groups` | `array` | Facet groups for filtering options |
+| `nhits` | `int` | Total number of records matching the query |
+| `parameters` | `array` | Query parameters used for the search |
 | `records` | `array` |  |
 
 #### Example: List

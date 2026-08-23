@@ -237,9 +237,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `facet_groups` |  |
-| `nhits` |  |
-| `parameters` |  |
+| `facet_groups` | Facet groups for filtering options |
+| `nhits` | Total number of records matching the query |
+| `parameters` | Query parameters used for the search |
 | `records` |  |
 
 Operations: List.
@@ -265,9 +265,9 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_groups` | `Array` |  |
-| `nhits` | `Integer` |  |
-| `parameters` | `Hash` |  |
+| `facet_groups` | `Array` | Facet groups for filtering options |
+| `nhits` | `Integer` | Total number of records matching the query |
+| `parameters` | `Hash` | Query parameters used for the search |
 | `records` | `Array` |  |
 
 #### Example: List

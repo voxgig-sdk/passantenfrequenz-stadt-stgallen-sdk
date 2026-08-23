@@ -231,9 +231,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `facet_groups` |  |
-| `nhits` |  |
-| `parameters` |  |
+| `facet_groups` | Facet groups for filtering options |
+| `nhits` | Total number of records matching the query |
+| `parameters` | Query parameters used for the search |
 | `records` |  |
 
 Operations: List.
@@ -259,9 +259,9 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `facet_groups` | `table` |  |
-| `nhits` | `number` |  |
-| `parameters` | `table` |  |
+| `facet_groups` | `table` | Facet groups for filtering options |
+| `nhits` | `number` | Total number of records matching the query |
+| `parameters` | `table` | Query parameters used for the search |
 | `records` | `table` |  |
 
 #### Example: List

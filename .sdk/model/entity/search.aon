@@ -8,16 +8,19 @@ main: kit: entity: search: {
     {
       name: "facet_groups"
       req: false
+      short: "Facet groups for filtering options"
       type: "`$ARRAY`"
     }
     {
       name: "nhits"
       req: false
+      short: "Total number of records matching the query"
       type: "`$INTEGER`"
     }
     {
       name: "parameters"
       req: false
+      short: "Query parameters used for the search"
       type: "`$OBJECT`"
     }
     {

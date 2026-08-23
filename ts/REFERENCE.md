@@ -116,9 +116,9 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_groups` | `any[]` | No |  |
-| `nhits` | `number` | No |  |
-| `parameters` | `Record<string, any>` | No |  |
+| `facet_groups` | `any[]` | No | Facet groups for filtering options |
+| `nhits` | `number` | No | Total number of records matching the query |
+| `parameters` | `Record<string, any>` | No | Query parameters used for the search |
 | `records` | `any[]` | No |  |
 
 ### Operations

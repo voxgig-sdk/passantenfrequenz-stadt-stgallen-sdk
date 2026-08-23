@@ -87,9 +87,9 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_groups` | `list` | No |  |
-| `nhits` | `int` | No |  |
-| `parameters` | `dict` | No |  |
+| `facet_groups` | `list` | No | Facet groups for filtering options |
+| `nhits` | `int` | No | Total number of records matching the query |
+| `parameters` | `dict` | No | Query parameters used for the search |
 | `records` | `list` | No |  |
 
 ### Operations

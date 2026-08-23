@@ -92,9 +92,9 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_groups` | `array` | No |  |
-| `nhits` | `int` | No |  |
-| `parameters` | `array` | No |  |
+| `facet_groups` | `array` | No | Facet groups for filtering options |
+| `nhits` | `int` | No | Total number of records matching the query |
+| `parameters` | `array` | No | Query parameters used for the search |
 | `records` | `array` | No |  |
 
 ### Operations

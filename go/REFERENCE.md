@@ -98,9 +98,9 @@ fmt.Println(search.GetName()) // "search"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `facet_groups` | `[]any` | No |  |
-| `nhits` | `int` | No |  |
-| `parameters` | `map[string]any` | No |  |
+| `facet_groups` | `[]any` | No | Facet groups for filtering options |
+| `nhits` | `int` | No | Total number of records matching the query |
+| `parameters` | `map[string]any` | No | Query parameters used for the search |
 | `records` | `[]any` | No |  |
 
 ### Operations

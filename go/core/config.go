@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "PassantenfrequenzStadtStgallen",
+			"slug": "passantenfrequenz-stadt-stgallen",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,14 +36,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "facet_groups",
+						"short": "Facet groups for filtering options",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "nhits",
+						"short": "Total number of records matching the query",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"short": "Query parameters used for the search",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{

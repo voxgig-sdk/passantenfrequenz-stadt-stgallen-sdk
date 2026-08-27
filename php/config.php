@@ -42,6 +42,7 @@ class PassantenfrequenzStadtStgallenConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [

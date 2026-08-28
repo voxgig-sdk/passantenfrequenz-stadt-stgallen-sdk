@@ -24,9 +24,16 @@ class Search
 /** Request payload for Search#list. */
 class SearchListMatch
 {
-    public ?array $facet_groups = null;
-    public ?int $nhits = null;
-    public ?array $parameters = null;
-    public ?array $records = null;
+    public string $dataset;
+    public ?array $facet = null;
+    public ?string $format = null;
+    public ?string $q = null;
+    public ?string $refine_arbeitstag = null;
+    public ?string $refine_tag_nr = null;
+    public ?string $refine_wochentag = null;
+    public ?int $row = null;
+    public ?string $sort = null;
+    public ?int $start = null;
+    public ?string $timezone = null;
 }
 

@@ -31,22 +31,50 @@ Search = Struct.new(
 
 # Request payload for Search#list.
 #
-# @!attribute [rw] facet_groups
+# @!attribute [rw] dataset
+#   @return [String]
+#
+# @!attribute [rw] facet
 #   @return [Array, nil]
 #
-# @!attribute [rw] nhits
+# @!attribute [rw] format
+#   @return [String, nil]
+#
+# @!attribute [rw] q
+#   @return [String, nil]
+#
+# @!attribute [rw] refine_arbeitstag
+#   @return [String, nil]
+#
+# @!attribute [rw] refine_tag_nr
+#   @return [String, nil]
+#
+# @!attribute [rw] refine_wochentag
+#   @return [String, nil]
+#
+# @!attribute [rw] row
 #   @return [Integer, nil]
 #
-# @!attribute [rw] parameters
-#   @return [Hash, nil]
+# @!attribute [rw] sort
+#   @return [String, nil]
 #
-# @!attribute [rw] records
-#   @return [Array, nil]
+# @!attribute [rw] start
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timezone
+#   @return [String, nil]
 SearchListMatch = Struct.new(
-  :facet_groups,
-  :nhits,
-  :parameters,
-  :records,
+  :dataset,
+  :facet,
+  :format,
+  :q,
+  :refine_arbeitstag,
+  :refine_tag_nr,
+  :refine_wochentag,
+  :row,
+  :sort,
+  :start,
+  :timezone,
   keyword_init: true
 )
 

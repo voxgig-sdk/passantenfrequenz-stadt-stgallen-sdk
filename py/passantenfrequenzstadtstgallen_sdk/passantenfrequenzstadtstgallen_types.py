@@ -23,8 +23,18 @@ class Search(TypedDict, total=False):
     records: list
 
 
-class SearchListMatch(TypedDict, total=False):
-    facet_groups: list
-    nhits: int
-    parameters: dict
-    records: list
+class SearchListMatchRequired(TypedDict):
+    dataset: str
+
+
+class SearchListMatch(SearchListMatchRequired, total=False):
+    facet: list
+    format: str
+    q: str
+    refine_arbeitstag: str
+    refine_tag_nr: str
+    refine_wochentag: str
+    row: int
+    sort: str
+    start: int
+    timezone: str

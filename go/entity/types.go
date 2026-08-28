@@ -22,10 +22,17 @@ type Search struct {
 
 // SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
-	FacetGroups *[]any `json:"facet_groups,omitempty"`
-	Nhits *int `json:"nhits,omitempty"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Records *[]any `json:"records,omitempty"`
+	Dataset string `json:"dataset"`
+	Facet *[]any `json:"facet,omitempty"`
+	Format *string `json:"format,omitempty"`
+	Q *string `json:"q,omitempty"`
+	RefineArbeitstag *string `json:"refine_arbeitstag,omitempty"`
+	RefineTagNr *string `json:"refine_tag_nr,omitempty"`
+	RefineWochentag *string `json:"refine_wochentag,omitempty"`
+	Row *int `json:"row,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	Start *int `json:"start,omitempty"`
+	Timezone *string `json:"timezone,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

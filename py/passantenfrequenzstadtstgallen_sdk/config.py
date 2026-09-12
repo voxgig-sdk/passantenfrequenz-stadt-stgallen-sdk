@@ -1,6 +1,14 @@
 # PassantenfrequenzStadtStgallen SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -159,10 +167,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/records/1.0/search/",
-                "parts": [
-                  "records",
-                  "1.0",
-                  "search",
+                "segments": [
+                  {
+                    "lit": "records",
+                  },
+                  {
+                    "lit": "1.0",
+                  },
+                  {
+                    "lit": "search",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -183,6 +197,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "records",
+                  "1.0",
+                  "search",
+                ],
               },
             ],
           },

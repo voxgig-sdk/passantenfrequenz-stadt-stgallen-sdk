@@ -164,10 +164,16 @@ class PassantenfrequenzStadtStgallenConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/records/1.0/search/',
-                  'parts' => [
-                    'records',
-                    '1.0',
-                    'search',
+                  'segments' => [
+                    [
+                      'lit' => 'records',
+                    ],
+                    [
+                      'lit' => '1.0',
+                    ],
+                    [
+                      'lit' => 'search',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -187,6 +193,11 @@ class PassantenfrequenzStadtStgallenConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'records',
+                    '1.0',
+                    'search',
                   ],
                 ],
               ],

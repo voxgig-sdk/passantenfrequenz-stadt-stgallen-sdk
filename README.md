@@ -105,7 +105,7 @@ local results, err = client:Search():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
+| TypeScript | `@voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
 | Python | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
 | PHP | `voxgig-sdk/passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go` | `go get github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Search():list()
 ### TypeScript
 
 ```ts
-import { PassantenfrequenzStadtStgallenSDK } from '@voxgig-sdk/passantenfrequenz-stadt-stgallen'
+import { PassantenfrequenzStadtStgallenSDK } from '@voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk'
 
 const client = new PassantenfrequenzStadtStgallenSDK()
 

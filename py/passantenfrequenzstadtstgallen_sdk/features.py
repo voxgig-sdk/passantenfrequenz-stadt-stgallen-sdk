@@ -1,12 +1,18 @@
 # PassantenfrequenzStadtStgallen SDK feature factory
 
 from passantenfrequenzstadtstgallen_sdk.feature.base_feature import PassantenfrequenzStadtStgallenBaseFeature
+from passantenfrequenzstadtstgallen_sdk.feature.ratelimit_feature import PassantenfrequenzStadtStgallenRatelimitFeature
+from passantenfrequenzstadtstgallen_sdk.feature.retry_feature import PassantenfrequenzStadtStgallenRetryFeature
 from passantenfrequenzstadtstgallen_sdk.feature.test_feature import PassantenfrequenzStadtStgallenTestFeature
+from passantenfrequenzstadtstgallen_sdk.feature.timeout_feature import PassantenfrequenzStadtStgallenTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: PassantenfrequenzStadtStgallenBaseFeature(),
+    "ratelimit": lambda: PassantenfrequenzStadtStgallenRatelimitFeature(),
+    "retry": lambda: PassantenfrequenzStadtStgallenRetryFeature(),
     "test": lambda: PassantenfrequenzStadtStgallenTestFeature(),
+    "timeout": lambda: PassantenfrequenzStadtStgallenTimeoutFeature(),
 }
 
 

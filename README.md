@@ -105,12 +105,12 @@ local results, err = client:Search():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
-| Python | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
-| PHP | `voxgig-sdk/passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
+| TypeScript | `@voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/tags) |
+| Python | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/tags) |
+| PHP | `voxgig-sdk/passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go` | `go get github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go@latest` |
-| Ruby | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
-| Lua | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/releases) |
+| Ruby | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/tags) |
+| Lua | `voxgig-sdk-passantenfrequenz-stadt-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go-cli` | `go install github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go-cli/cmd/passantenfrequenz-stadt-stgallen@latest` |
 | Go MCP server | `github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go-mcp` | `go get github.com/voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk/go-mcp@latest` |
 

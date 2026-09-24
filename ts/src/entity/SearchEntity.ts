@@ -19,7 +19,6 @@ import type {
   SearchListMatch,
 } from '../PassantenfrequenzStadtStgallenTypes'
 
-// TODO: needs Entity superclass
 class SearchEntity extends PassantenfrequenzStadtStgallenEntityBase<Search> {
 
   constructor(client: PassantenfrequenzStadtStgallenSDK, entopts: any) {

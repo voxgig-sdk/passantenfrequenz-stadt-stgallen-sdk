@@ -1,0 +1,174 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: {
+    facet_groups: {
+      h: "Facet Groups"
+      n: "facet_groups"
+      r: false
+      sh: "Facet groups for filtering options"
+      t: "`$ARRAY`"
+    }
+    nhits: {
+      h: "Nhits"
+      n: "nhits"
+      r: false
+      sh: "Total number of records matching the query"
+      t: "`$INTEGER`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      sh: "Query parameters used for the search"
+      t: "`$OBJECT`"
+    }
+    records: {
+      h: "Records"
+      n: "records"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "search"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /records/1.0/search/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "fussganger-stgaller-innenstadt-vadianstrasse"
+                k: "query"
+                n: "dataset"
+                or: "dataset"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "facet"
+                or: "facet"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "refine_arbeitstag"
+                or: "refine_arbeitstag"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "refine_tag_nr"
+                or: "refine_tag_nr"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "refine_wochentag"
+                or: "refine_wochentag"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "row"
+                or: "row"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "measured_at"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "start"
+                or: "start"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "Europe/Zurich"
+                k: "query"
+                n: "timezone"
+                or: "timezone"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/records/1.0/search/"
+          q: {
+            exist: [
+              "dataset"
+              "facet"
+              "format"
+              "q"
+              "refine_arbeitstag"
+              "refine_tag_nr"
+              "refine_wochentag"
+              "row"
+              "sort"
+              "start"
+              "timezone"
+            ]
+          }
+          s: [
+            {
+              lit: "records"
+            }
+            {
+              lit: "1.0"
+            }
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

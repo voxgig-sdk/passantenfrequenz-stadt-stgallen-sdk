@@ -1,7 +1,7 @@
 // Typed models for the PassantenfrequenzStadtStgallen SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,10 +14,6 @@ import (
 
 // Search is the typed data model for the search entity.
 type Search struct {
-	FacetGroups *[]any `json:"facet_groups,omitempty"`
-	Nhits *int `json:"nhits,omitempty"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Records *[]any `json:"records,omitempty"`
 }
 
 // SearchListMatch is the typed request payload for Search.ListTyped.

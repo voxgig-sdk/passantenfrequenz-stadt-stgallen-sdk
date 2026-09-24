@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,21 +107,25 @@ class Config {
             "fields": [
                 {
                     "name": "facet_groups",
-                    "short": "Facet groups for filtering options",
-                    "type": "`$ARRAY`"
+                    "title": "Facet Groups",
+                    "type": "`$ARRAY`",
+                    "short": "Facet groups for filtering options"
                 },
                 {
                     "name": "nhits",
-                    "short": "Total number of records matching the query",
-                    "type": "`$INTEGER`"
+                    "title": "Nhits",
+                    "type": "`$INTEGER`",
+                    "short": "Total number of records matching the query"
                 },
                 {
                     "name": "parameters",
-                    "short": "Query parameters used for the search",
-                    "type": "`$OBJECT`"
+                    "title": "Parameters",
+                    "type": "`$OBJECT`",
+                    "short": "Query parameters used for the search"
                 },
                 {
                     "name": "records",
+                    "title": "Records",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -139,83 +136,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": "fussganger-stgaller-innenstadt-vadianstrasse",
-                                        "kind": "query",
-                                        "name": "dataset",
-                                        "orig": "dataset",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "facet",
-                                        "orig": "facet",
-                                        "type": "`$ARRAY`"
-                                    },
-                                    {
-                                        "example": "json",
-                                        "kind": "query",
-                                        "name": "format",
-                                        "orig": "format",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "q",
-                                        "orig": "q",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "refine_arbeitstag",
-                                        "orig": "refine_arbeitstag",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "refine_tag_nr",
-                                        "orig": "refine_tag_nr",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "refine_wochentag",
-                                        "orig": "refine_wochentag",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 10,
-                                        "kind": "query",
-                                        "name": "row",
-                                        "orig": "row",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": "measured_at",
-                                        "kind": "query",
-                                        "name": "sort",
-                                        "orig": "sort",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 0,
-                                        "kind": "query",
-                                        "name": "start",
-                                        "orig": "start",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": "Europe/Zurich",
-                                        "kind": "query",
-                                        "name": "timezone",
-                                        "orig": "timezone",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/records/1.0/search/",
@@ -230,6 +150,93 @@ class Config {
                                     "lit": "search"
                                 }
                             ],
+                            "parts": [
+                                "records",
+                                "1.0",
+                                "search"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "dataset",
+                                        "orig": "dataset",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "fussganger-stgaller-innenstadt-vadianstrasse"
+                                    },
+                                    {
+                                        "name": "facet",
+                                        "orig": "facet",
+                                        "type": "`$ARRAY`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "format",
+                                        "orig": "format",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "json"
+                                    },
+                                    {
+                                        "name": "q",
+                                        "orig": "q",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "refine_arbeitstag",
+                                        "orig": "refine_arbeitstag",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "refine_tag_nr",
+                                        "orig": "refine_tag_nr",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "refine_wochentag",
+                                        "orig": "refine_wochentag",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "row",
+                                        "orig": "row",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 10
+                                    },
+                                    {
+                                        "name": "sort",
+                                        "orig": "sort",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "measured_at"
+                                    },
+                                    {
+                                        "name": "start",
+                                        "orig": "start",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "timezone",
+                                        "orig": "timezone",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "Europe/Zurich"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "dataset",
@@ -244,16 +251,7 @@ class Config {
                                     "start",
                                     "timezone"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "records",
-                                "1.0",
-                                "search"
-                            ]
+                            }
                         }
                     ]
                 }

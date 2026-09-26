@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/passantenfrequenz-stadt-stgallen",
+  "name": "voxgig-sdk/passantenfrequenz-stadt-stgallen-sdk",
   "description": "Unofficial generated PHP SDK for the Passantenfrequenz Stadt St.Gallen public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "passantenfrequenz-stadt-stgallen"],

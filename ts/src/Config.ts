@@ -216,25 +216,25 @@ class Config {
                   },
                   {
                     "name": "refine_arbeitstag",
-                    "orig": "refine_arbeitstag",
+                    "orig": "refine.arbeitstag",
                     "type": "`$STRING`",
                     "kind": "query"
                   },
                   {
                     "name": "refine_tag_nr",
-                    "orig": "refine_tag_nr",
+                    "orig": "refine.tag_nr",
                     "type": "`$STRING`",
                     "kind": "query"
                   },
                   {
                     "name": "refine_wochentag",
-                    "orig": "refine_wochentag",
+                    "orig": "refine.wochentag",
                     "type": "`$STRING`",
                     "kind": "query"
                   },
                   {
                     "name": "row",
-                    "orig": "row",
+                    "orig": "rows",
                     "type": "`$INTEGER`",
                     "kind": "query",
                     "example": 10

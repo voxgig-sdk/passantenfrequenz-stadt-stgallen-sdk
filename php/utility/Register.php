@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 PassantenfrequenzStadtStgallenUtility::setRegistrar(function (PassantenfrequenzStadtStgallenUtility $u): void {
     $u->clean = [PassantenfrequenzStadtStgallenClean::class, 'call'];
+    $u->clean_add = [PassantenfrequenzStadtStgallenClean::class, 'add'];
+    $u->clean_explain = [PassantenfrequenzStadtStgallenDone::class, 'clean_explain'];
     $u->done = [PassantenfrequenzStadtStgallenDone::class, 'call'];
     $u->make_error = [PassantenfrequenzStadtStgallenMakeError::class, 'call'];
     $u->feature_add = [PassantenfrequenzStadtStgallenFeatureAdd::class, 'call'];

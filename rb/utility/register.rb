@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 PassantenfrequenzStadtStgallenUtility.registrar = ->(u) {
   u.clean = PassantenfrequenzStadtStgallenUtilities::Clean
+  u.clean_add = PassantenfrequenzStadtStgallenUtilities::CleanAdd
+  u.clean_explain = PassantenfrequenzStadtStgallenUtilities::CleanExplain
   u.done = PassantenfrequenzStadtStgallenUtilities::Done
   u.make_error = PassantenfrequenzStadtStgallenUtilities::MakeError
   u.feature_add = PassantenfrequenzStadtStgallenUtilities::FeatureAdd

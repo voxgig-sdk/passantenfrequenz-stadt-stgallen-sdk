@@ -182,7 +182,7 @@
                         "a": true,
                         "k": "query",
                         "n": "refine_arbeitstag",
-                        "or": "refine_arbeitstag",
+                        "or": "refine.arbeitstag",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -190,7 +190,7 @@
                         "a": true,
                         "k": "query",
                         "n": "refine_tag_nr",
-                        "or": "refine_tag_nr",
+                        "or": "refine.tag_nr",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -198,7 +198,7 @@
                         "a": true,
                         "k": "query",
                         "n": "refine_wochentag",
-                        "or": "refine_wochentag",
+                        "or": "refine.wochentag",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -207,7 +207,7 @@
                         "ex": 10,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -755,7 +755,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

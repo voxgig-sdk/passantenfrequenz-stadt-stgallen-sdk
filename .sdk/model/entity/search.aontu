@@ -80,21 +80,21 @@ main: kit: entity: search: {
               {
                 k: "query"
                 n: "refine_arbeitstag"
-                or: "refine_arbeitstag"
+                or: "refine.arbeitstag"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "refine_tag_nr"
-                or: "refine_tag_nr"
+                or: "refine.tag_nr"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "refine_wochentag"
-                or: "refine_wochentag"
+                or: "refine.wochentag"
                 r: false
                 t: "`$STRING`"
               }
@@ -102,7 +102,7 @@ main: kit: entity: search: {
                 ex: 10
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }

@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { PassantenfrequenzStadtStgallenSDK, BaseFeature, stdutil } from '../../..'
+import { PassantenfrequenzStadtStgallenSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('SearchEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('search hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of PassantenfrequenzStadtStgallenSDK.test(offline).Search().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of PassantenfrequenzStadtStgallenSDK.test(offline).Search()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = PassantenfrequenzStadtStgallenSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Search().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of PassantenfrequenzStadtStgallenSDK.test().Search().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new PassantenfrequenzStadtStgallenSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Search().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Search().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = PassantenfrequenzStadtStgallenSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Search().list({"dataset":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.PASSANTENFREQUENZ_STADT_STGALLEN_TEST_LIVE
@@ -51,7 +109,7 @@ describe('SearchEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"facet_groups":{"a":true,"h":"Facet Groups","n":"facet_groups","r":false,"sh":"Facet groups for filtering options","t":"`$ARRAY`","key$":"facet_groups","index$":0},"nhits":{"a":true,"h":"Nhits","n":"nhits","r":false,"sh":"Total number of records matching the query","t":"`$INTEGER`","key$":"nhits","index$":1},"parameters":{"a":true,"h":"Parameters","n":"parameters","r":false,"sh":"Query parameters used for the search","t":"`$OBJECT`","key$":"parameters","index$":2},"records":{"a":true,"h":"Records","n":"records","r":false,"t":"`$ARRAY`","key$":"records","index$":3}},"name":"search","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /records/1.0/search/","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":"fussganger-stgaller-innenstadt-vadianstrasse","k":"query","n":"dataset","or":"dataset","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"facet","or":"facet","r":false,"t":"`$ARRAY`","index$":1},{"a":true,"ex":"json","k":"query","n":"format","or":"format","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"q","or":"q","r":false,"t":"`$STRING`","index$":3},{"a":true,"k":"query","n":"refine_arbeitstag","or":"refine.arbeitstag","r":false,"t":"`$STRING`","index$":4},{"a":true,"k":"query","n":"refine_tag_nr","or":"refine.tag_nr","r":false,"t":"`$STRING`","index$":5},{"a":true,"k":"query","n":"refine_wochentag","or":"refine.wochentag","r":false,"t":"`$STRING`","index$":6},{"a":true,"ex":10,"k":"query","n":"row","or":"rows","r":false,"t":"`$INTEGER`","index$":7},{"a":true,"ex":"measured_at","k":"query","n":"sort","or":"sort","r":false,"t":"`$STRING`","index$":8},{"a":true,"ex":0,"k":"query","n":"start","or":"start","r":false,"t":"`$INTEGER`","index$":9},{"a":true,"ex":"Europe/Zurich","k":"query","n":"timezone","or":"timezone","r":false,"t":"`$STRING`","index$":10}]},"k":"http","m":"GET","o":"/records/1.0/search/","q":{"exist":["dataset","facet","format","q","refine_arbeitstag","refine_tag_nr","refine_wochentag","row","sort","start","timezone"]},"r":{},"s":[{"lit":"records"},{"lit":"1.0"},{"lit":"search"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"search","name__orig":"search","Name":"Search","name_":"search","name-":"search","NAME":"SEARCH","index$":0}, {"active":true,"entity":"search","key$":"BasicSearchFlow","kind":"basic","name":"BasicSearchFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"search_ref01"}}],"index$":0}]}, 'Search', {"GET /records/1.0/search/":{"protocol":"http","parameters":[{"name":"dataset","in":"query","required":true,"schema":{"type":"string","default":"fussganger-stgaller-innenstadt-vadianstrasse"},"description":"Dataset identifier for pedestrian traffic data","index$":0},{"name":"q","in":"query","required":false,"schema":{"type":"string"},"description":"Full-text search query","index$":1},{"name":"rows","in":"query","required":false,"schema":{"type":"integer","default":10,"minimum":1,"maximum":10000},"description":"Number of records to return","index$":2},{"name":"start","in":"query","required":false,"schema":{"type":"integer","default":0,"minimum":0},"description":"Index of the first result to return (for pagination)","index$":3},{"name":"sort","in":"query","required":false,"schema":{"type":"string","default":"measured_at"},"description":"Field to sort results by (e.g., 'measured_at' for measurement timestamp)","index$":4},{"name":"facet","in":"query","required":false,"schema":{"type":"array","items":{"type":"string","enum":["tag_nr","wochentag","arbeitstag"]}},"style":"form","explode":true,"description":"Facet fields for filtering (tag_nr: day number, wochentag: weekday, arbeitstag: working day)","index$":5},{"name":"refine.tag_nr","in":"query","required":false,"schema":{"type":"string"},"description":"Filter by day number","index$":6},{"name":"refine.wochentag","in":"query","required":false,"schema":{"type":"string"},"description":"Filter by weekday","index$":7},{"name":"refine.arbeitstag","in":"query","required":false,"schema":{"type":"string"},"description":"Filter by working day (yes/no)","index$":8},{"name":"format","in":"query","required":false,"schema":{"type":"string","enum":["json","csv","geojson"],"default":"json"},"description":"Response format","index$":9},{"name":"timezone","in":"query","required":false,"schema":{"type":"string","default":"Europe/Zurich"},"description":"Timezone for date/time fields","index$":10}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"facet_groups":{"a":true,"h":"Facet Groups","n":"facet_groups","r":false,"sh":"Facet groups for filtering options","t":"`$ARRAY`","key$":"facet_groups","index$":0},"nhits":{"a":true,"h":"Nhits","n":"nhits","r":false,"sh":"Total number of records matching the query","t":"`$INTEGER`","key$":"nhits","index$":1},"parameters":{"a":true,"h":"Parameters","n":"parameters","r":false,"sh":"Query parameters used for the search","t":"`$OBJECT`","key$":"parameters","index$":2},"records":{"a":true,"h":"Records","n":"records","r":false,"t":"`$ARRAY`","key$":"records","index$":3}},"name":"search","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /records/1.0/search/","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":"fussganger-stgaller-innenstadt-vadianstrasse","k":"query","n":"dataset","or":"dataset","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"facet","or":"facet","r":false,"t":"`$ARRAY`","index$":1},{"a":true,"ex":"json","k":"query","n":"format","or":"format","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"q","or":"q","r":false,"t":"`$STRING`","index$":3},{"a":true,"k":"query","n":"refine_arbeitstag","or":"refine.arbeitstag","r":false,"t":"`$STRING`","index$":4},{"a":true,"k":"query","n":"refine_tag_nr","or":"refine.tag_nr","r":false,"t":"`$STRING`","index$":5},{"a":true,"k":"query","n":"refine_wochentag","or":"refine.wochentag","r":false,"t":"`$STRING`","index$":6},{"a":true,"ex":10,"k":"query","n":"row","or":"rows","r":false,"t":"`$INTEGER`","index$":7},{"a":true,"ex":"measured_at","k":"query","n":"sort","or":"sort","r":false,"t":"`$STRING`","index$":8},{"a":true,"ex":0,"k":"query","n":"start","or":"start","r":false,"t":"`$INTEGER`","index$":9},{"a":true,"ex":"Europe/Zurich","k":"query","n":"timezone","or":"timezone","r":false,"t":"`$STRING`","index$":10}]},"k":"http","m":"GET","o":"/records/1.0/search/","q":{"exist":["dataset"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"records"},{"lit":"1.0"},{"lit":"search"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"search","name__orig":"search","Name":"Search","name_":"search","name-":"search","NAME":"SEARCH","index$":0}, {"active":true,"entity":"search","key$":"BasicSearchFlow","kind":"basic","name":"BasicSearchFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"search_ref01"}}],"index$":0}]}, 'Search', {"GET /records/1.0/search/":{"protocol":"http","parameters":[{"name":"dataset","in":"query","required":true,"schema":{"type":"string","default":"fussganger-stgaller-innenstadt-vadianstrasse"},"description":"Dataset identifier for pedestrian traffic data","index$":0},{"name":"q","in":"query","required":false,"schema":{"type":"string"},"description":"Full-text search query","index$":1},{"name":"rows","in":"query","required":false,"schema":{"type":"integer","default":10,"minimum":1,"maximum":10000},"description":"Number of records to return","index$":2},{"name":"start","in":"query","required":false,"schema":{"type":"integer","default":0,"minimum":0},"description":"Index of the first result to return (for pagination)","index$":3},{"name":"sort","in":"query","required":false,"schema":{"type":"string","default":"measured_at"},"description":"Field to sort results by (e.g., 'measured_at' for measurement timestamp)","index$":4},{"name":"facet","in":"query","required":false,"schema":{"type":"array","items":{"type":"string","enum":["tag_nr","wochentag","arbeitstag"]}},"style":"form","explode":true,"description":"Facet fields for filtering (tag_nr: day number, wochentag: weekday, arbeitstag: working day)","index$":5},{"name":"refine.tag_nr","in":"query","required":false,"schema":{"type":"string"},"description":"Filter by day number","index$":6},{"name":"refine.wochentag","in":"query","required":false,"schema":{"type":"string"},"description":"Filter by weekday","index$":7},{"name":"refine.arbeitstag","in":"query","required":false,"schema":{"type":"string"},"description":"Filter by working day (yes/no)","index$":8},{"name":"format","in":"query","required":false,"schema":{"type":"string","enum":["json","csv","geojson"],"default":"json"},"description":"Response format","index$":9},{"name":"timezone","in":"query","required":false,"schema":{"type":"string","default":"Europe/Zurich"},"description":"Timezone for date/time fields","index$":10}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +130,12 @@ describe('SearchEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

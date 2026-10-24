@@ -18,17 +18,21 @@ const PLAN: any[] = [
     "select": {
       "dataset": "v1",
       "facet": "v1",
-      "format": "v1",
+      "format": "json",
       "q": "v1",
       "refine_arbeitstag": "v1",
       "refine_tag_nr": "v1",
       "refine_wochentag": "v1",
-      "row": "v1",
-      "sort": "v1",
-      "start": "v1",
-      "timezone": "v1"
+      "row": 10,
+      "sort": "measured_at",
+      "start": 0,
+      "timezone": "Europe/Zurich"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "dataset",
       "q",
@@ -42,6 +46,52 @@ const PLAN: any[] = [
       "format",
       "timezone"
     ],
+    "queryArgs": [
+      {
+        "name": "dataset",
+        "wire": "dataset"
+      },
+      {
+        "name": "facet",
+        "wire": "facet"
+      },
+      {
+        "name": "format",
+        "wire": "format"
+      },
+      {
+        "name": "q",
+        "wire": "q"
+      },
+      {
+        "name": "refine_arbeitstag",
+        "wire": "refine.arbeitstag"
+      },
+      {
+        "name": "refine_tag_nr",
+        "wire": "refine.tag_nr"
+      },
+      {
+        "name": "refine_wochentag",
+        "wire": "refine.wochentag"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      },
+      {
+        "name": "sort",
+        "wire": "sort"
+      },
+      {
+        "name": "start",
+        "wire": "start"
+      },
+      {
+        "name": "timezone",
+        "wire": "timezone"
+      }
+    ],
     "auth": null,
     "status": 200,
     "sample": {
@@ -50,29 +100,29 @@ const PLAN: any[] = [
       "records": [
         {
           "datasetid": "fussganger-stgaller-innenstadt-vadianstrasse",
+          "recordid": "x",
           "fields": {
-            "arbeitstag": "x",
             "measured_at": "2026-01-01T00:00:00Z",
+            "von_rechts": 1,
+            "von_links": 1,
             "summe": 1,
             "tag_nr": 1,
-            "von_links": 1,
-            "von_rechts": 1,
-            "wochentag": "x"
+            "wochentag": "x",
+            "arbeitstag": "x"
           },
-          "record_timestamp": "2026-01-01T00:00:00Z",
-          "recordid": "x"
+          "record_timestamp": "2026-01-01T00:00:00Z"
         }
       ],
       "facet_groups": [
         {
+          "name": "x",
           "facets": [
             {
-              "count": 1,
               "name": "x",
+              "count": 1,
               "state": "x"
             }
-          ],
-          "name": "x"
+          ]
         }
       ]
     },

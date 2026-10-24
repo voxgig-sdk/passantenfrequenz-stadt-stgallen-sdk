@@ -137,17 +137,11 @@ main: kit: entity: search: {
           q: {
             exist: [
               "dataset"
-              "facet"
-              "format"
-              "q"
-              "refine_arbeitstag"
-              "refine_tag_nr"
-              "refine_wochentag"
-              "row"
-              "sort"
-              "start"
-              "timezone"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

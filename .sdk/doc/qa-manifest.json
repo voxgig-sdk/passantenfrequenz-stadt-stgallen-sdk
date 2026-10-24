@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Facet groups for filtering options",
+      "Measures pedestrian traffic in St. Gallen, showing the number of pedestrians passing by a sensor on Vadianstrasse (at St.Galler Stadtwerke). The sensor measures pedestrians coming from the right (Neumarkt) and left (Multergasse), with hourly aggregated data. This dataset shows unprocessed live sensor data, meaning measurement errors or interruptions are not captured or corrected.",
+      "Query parameters used for the search",
+      "St.Gallen Open Data API Server",
+      "Successful response with pedestrian traffic records",
+      "Total number of records matching the query"
+    ]
+  }
 }

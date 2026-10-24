@@ -79,6 +79,7 @@ module PassantenfrequenzStadtStgallenConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -232,17 +233,11 @@ module PassantenfrequenzStadtStgallenConfig
                   "select" => {
                     "exist" => [
                       "dataset",
-                      "facet",
-                      "format",
-                      "q",
-                      "refine_arbeitstag",
-                      "refine_tag_nr",
-                      "refine_wochentag",
-                      "row",
-                      "sort",
-                      "start",
-                      "timezone",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

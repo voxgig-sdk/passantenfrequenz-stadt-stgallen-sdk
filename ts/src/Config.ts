@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -264,18 +265,12 @@ class Config {
               },
               "select": {
                 "exist": [
-                  "dataset",
-                  "facet",
-                  "format",
-                  "q",
-                  "refine_arbeitstag",
-                  "refine_tag_nr",
-                  "refine_wochentag",
-                  "row",
-                  "sort",
-                  "start",
-                  "timezone"
+                  "dataset"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
